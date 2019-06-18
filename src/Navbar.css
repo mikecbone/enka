@@ -1,0 +1,55 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 6vh;
+}
+
+.Navbar-logo {
+  margin-right: 15px;
+  padding: 0 13px;
+  font-size: 22px;
+  background-color: #ECEFF1;
+  font-family: Mali;
+  font-style: italic;
+  font-weight: 700;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Navbar-logo a {
+  text-decoration: none;
+  color: black;
+}
+
+.slider {
+  width: 350px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.slider-container {
+}
+
+.rc-slider-track{
+  background-color: transparent;
+}
+
+.rc-slider-rail {
+  height: 8px;
+}
+
+.rc-slider-handle,
+.rc-slider-handle:active,
+.rc-slider-handle:hover,
+.rc-slider-handle:focus {
+  background-color: blue;
+  outline: none;
+  border: 2px solid blue;
+  box-shadow: none;
+  width: 13px;
+  height: 13px;
+  margin-left: -7px;
+  margin-top: -3px;
+}
