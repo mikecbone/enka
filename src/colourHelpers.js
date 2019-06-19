@@ -24,7 +24,9 @@ export default function generatePalette(starterPalette){
         id: colorObj.name.toLowerCase().replace(/ /g, "-"),
         hex: scale[i],
         rgb: chroma(scale[i]).css(),
-        rgba: chroma(scale[i]).css("rgba")
+        rgba: chroma(scale[i]).css('rgba'),
+        hsl: chroma(scale[i]).css('hsl'),
+        hsla: chroma(scale[i]).css('hsla')
       })
     }
   }

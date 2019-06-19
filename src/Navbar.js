@@ -36,6 +36,8 @@ export default class Navbar extends Component {
             <MenuItem value="hex">HEX - #FFFFFF</MenuItem>
             <MenuItem value="rgb">RGB - rgb(255, 255, 255)</MenuItem>
             <MenuItem value="rgba">RGBA - rgba(255, 255, 255, 1)</MenuItem>
+            <MenuItem value="hsl">HSL - hsl(0, 100%, 100%)</MenuItem>
+            <MenuItem value="hsla">HSLA - hsla(0, 100%, 100%, 1)</MenuItem>
           </Select>
         </div>
         <Snackbar 
