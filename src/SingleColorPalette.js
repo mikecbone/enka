@@ -6,6 +6,14 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
 
 const styles = {
+  Palette: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column"
+  },
+  PaletteColors: {
+    height: "90%"
+  },
   BackBox: {
     height: "50%",
     width: "20%",
@@ -14,11 +22,7 @@ const styles = {
     position: "relative",
     cursor: "pointer",
     marginBottom: "-4px",
-    backgroundColor: "black",
-    "&:hover $copyButton": {
-      opacity: "1",
-      transition: "0.4s ease-out"
-    }
+    backgroundColor: "black"
   },
   backButton: {
     width: "100px",
@@ -59,9 +63,9 @@ class SingleColorPalette extends Component {
       <ColorBox key={color.name} name={color.name} background={color[format]} showingLevels={true}/>
     ))
     return (
-      <div className="SingleColorPalette Palette">
+      <div className={classes.Palette}>
         <Navbar changeFormat={this.changeFormat} showLevels={false}/>
-        <div className="Palette-colors">
+        <div className={classes.PaletteColors}>
           {colorBoxes}
           <Link to={`/palette/${id}`}>
             <div className={classes.BackBox}>
