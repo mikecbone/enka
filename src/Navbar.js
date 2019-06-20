@@ -18,14 +18,14 @@ export default class Navbar extends Component {
     this.closeSnackbar = this.closeSnackbar.bind(this);
   }
   render() {
-    const {level, changeLevel, showLevels} = this.props;
+    const {level, changeLevel, showLevelsBar} = this.props;
     const {format} = this.state;
     return (
       <header className="Navbar">
         <div className="Navbar-logo">
           <Link to="/">Enka</Link>
         </div>
-        { showLevels &&
+        { showLevelsBar &&
           <div className="slider-container">
             <span>Level: {level}</span>
             <div className="slider">
