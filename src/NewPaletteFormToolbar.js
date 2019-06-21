@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,8 +11,39 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
+const drawerWidth = 440;
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex"
+  },
+  appBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: "64px"
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  toolbarButtons: {
+
+  }
+}));
+
 export default function NewPaletteFormToolbar(props) {
-  const {classes, open, handleDrawerOpen} = props;
+  const classes = useStyles();
+  const {open, handleDrawerOpen} = props;
   const [newPaletteName, setNewPaletteName] = React.useState("");
 
   function handlePaletteNameChange(event) {
@@ -31,7 +63,7 @@ export default function NewPaletteFormToolbar(props) {
   })
 
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar
         color="default"
@@ -50,7 +82,9 @@ export default function NewPaletteFormToolbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>New Color Palette</Typography>
+          <Typography variant="h6" noWrap>Create a Color Palette</Typography>
+        </Toolbar>
+        <div className={classes.toolbarButtons}>
           <ValidatorForm onSubmit={savePalette}>
             <TextValidator 
               value={newPaletteName} 
@@ -58,10 +92,10 @@ export default function NewPaletteFormToolbar(props) {
               validators={["required", "isUniquePaletteName"]}
               errorMessages={["Enter a palette name", "The palette name is already taken"]}
             />
-            <Link to="/"><Button variant="contained" color="primary">Go Back</Button></Link>
             <Button variant="contained" color="primary" type="submit">Save Palette</Button>
           </ValidatorForm>
-        </Toolbar>
+          <Link to="/"><Button variant="contained" color="primary">Go Back</Button></Link>
+        </div>
       </AppBar>
     </div>
   )

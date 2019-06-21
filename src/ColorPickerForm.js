@@ -2,9 +2,26 @@ import React from 'react';
 import Button from '@material-ui/core/button';
 import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { withStyles } from '@material-ui/styles';
 
-export default function ColorPickerForm(props) {
-  const { paletteIsFull, colors } = props;
+const styles = {
+  picker: {
+    width: "100% !important",
+    marginTop: "2rem"
+  },
+  addNewColor: {
+    width: "100%",
+    padding: "1rem",
+    marginTop: "1rem",
+    fontSize: "2rem"
+  },
+  formInput: {
+    width: "100%",
+  }
+}
+
+function ColorPickerForm(props) {
+  const { paletteIsFull, colors, classes } = props;
   const [currentColor, setCurrentColor] = React.useState('purple');
   const [newColorName, setNewColorName] = React.useState("");
 
@@ -37,13 +54,17 @@ export default function ColorPickerForm(props) {
 
   return (
     <div>
-      <ChromePicker color={currentColor} onChangeComplete={updateCurrentColor}/>
+      <ChromePicker color={currentColor} onChangeComplete={updateCurrentColor} className={classes.picker}/>
         <ValidatorForm onSubmit={addNewColor}>
           <TextValidator 
             value={newColorName} 
+            variant="filled"
+            margin="normal"
+            placeholder="Color Name"
             onChange={handleColourNameChange}
             validators={["required", "isUniqueColorName", "isUniqueColor"]}
             errorMessages={["Enter a color name", "The color name is taken", "The color is already used"]}
+            className={classes.formInput}
           />
           <Button 
             variant="contained" 
@@ -51,6 +72,7 @@ export default function ColorPickerForm(props) {
             style={{backgroundColor: paletteIsFull ? "lightgrey" : currentColor}} 
             type="submit" 
             disabled={paletteIsFull}
+            className={classes.addNewColor}
           >
             {paletteIsFull ? "Full Palette" : "Add Color"}
           </Button>
@@ -58,3 +80,5 @@ export default function ColorPickerForm(props) {
     </div>
   )
 }
+
+export default withStyles(styles)(ColorPickerForm)
