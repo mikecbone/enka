@@ -12,10 +12,6 @@ const styles = {
     position: "relative",
     cursor: "grab",
     marginBottom: "-6px",
-    // "&:hover $deleteIcon": {
-    //   color: "white",
-    //   transform: "scale(1.4)"
-    // }
   },
 
   boxContent: {
