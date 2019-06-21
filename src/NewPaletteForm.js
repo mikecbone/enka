@@ -74,7 +74,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NewPaletteForm() {
+export default function NewPaletteForm(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [currentColor, setCurrentColor] = React.useState('purple');
@@ -102,6 +102,14 @@ export default function NewPaletteForm() {
   function handleChange(event) {
     setNewColorName(event.target.value)
   }
+  
+  function savePalette() {
+    const newPaletteName = "New Test Palette"
+    const newPaletteId = newPaletteName.toLowerCase().replace(/ /g, "-")
+    const newPalette = {paletteName: newPaletteName, id: newPaletteId, emoji: "X", colors: colors}
+    props.savePalette(newPalette)
+    props.history.push("/")
+  }
 
   React.useEffect(() => {
     ValidatorForm.addValidationRule('isUniqueColorName', value =>
@@ -120,6 +128,7 @@ export default function NewPaletteForm() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+        color="default"
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -136,8 +145,9 @@ export default function NewPaletteForm() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            New Color Palette
           </Typography>
+          <Button variant="contained" color="primary" onClick={savePalette}>Save Palette</Button>
         </Toolbar>
       </AppBar>
 

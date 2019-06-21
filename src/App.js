@@ -9,15 +9,27 @@ import { Route, Switch } from 'react-router-dom';
 
 
 function App() {
+  const [palettes, setPalettes] = React.useState(seedColors)
+
+  function findPalette(id){
+    return palettes.find(function(palette) {
+      return palette.id === id;
+    })
+  }
+  
+  function savePalette(newPalette) {
+    setPalettes([...palettes, newPalette])
+  }
+
   return (
     <Switch>
       <Route 
         exact path="/" 
-        render={(routeProps) => <PaletteList palettes={seedColors} {...routeProps}/>}
+        render={(routeProps) => <PaletteList palettes={palettes} {...routeProps}/>}
       />
       <Route
         exact path="/palette/new"
-        render={() => <NewPaletteForm/>}
+        render={(routeProps) => <NewPaletteForm savePalette={savePalette} {...routeProps}/>}
       />
       <Route 
         exact path="/palette/:id" 
@@ -29,12 +41,6 @@ function App() {
       />
     </Switch>
   );
-}
-
-function findPalette(id){
-  return seedColors.find(function(palette) {
-    return palette.id === id;
-  })
 }
 
 export default App;
