@@ -12,10 +12,10 @@ const styles = {
     position: "relative",
     cursor: "grab",
     marginBottom: "-6px",
-    "&:hover $deleteIcon": {
-      color: "white",
-      transform: "scale(1.4)"
-    }
+    // "&:hover $deleteIcon": {
+    //   color: "white",
+    //   transform: "scale(1.4)"
+    // }
   },
 
   boxContent: {
@@ -33,7 +33,11 @@ const styles = {
   },
   
   deleteIcon: {
-    transition: "all 0.2s ease-in-out"
+    transition: "all 0.2s ease-in-out",
+    "&:hover": {
+      color: "white",
+      transform: "scale(1.4)"
+    }
   }
 }
 
