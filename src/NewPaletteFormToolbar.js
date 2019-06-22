@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PaletteMetaForm from './PaletteMetaForm';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const drawerWidth = 440;
 const useStyles = makeStyles(theme => ({
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     height: "64px"
   },
   appBarShift: {
@@ -37,30 +38,29 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   toolbarButtons: {
+    marginRight: "1rem",
 
+  },
+  button: {
+    margin: "0 0.5rem",
+  },
+  link: {
+    textDecoration: "none"
   }
 }));
 
 export default function NewPaletteFormToolbar(props) {
   const classes = useStyles();
-  const {open, handleDrawerOpen} = props;
-  const [newPaletteName, setNewPaletteName] = React.useState("");
+  const {open, handleDrawerOpen, palettes} = props;
+  const [showForm, setShowForm] = React.useState(false);
 
-  function handlePaletteNameChange(event) {
-    setNewPaletteName(event.target.value)
-  }
-
-  function savePalette() {
+  function savePalette(newPaletteName) {
     props.savePalette(newPaletteName)
   }
 
-  React.useEffect(() => {
-    ValidatorForm.addValidationRule('isUniquePaletteName', value =>
-      props.palettes.every(
-        ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase() 
-      )
-    );
-  })
+  function showMetaForm() {
+    setShowForm(true)
+  }
 
   return (
     <div className={classes.root}>
@@ -85,18 +85,11 @@ export default function NewPaletteFormToolbar(props) {
           <Typography variant="h6" noWrap>Create a Color Palette</Typography>
         </Toolbar>
         <div className={classes.toolbarButtons}>
-          <ValidatorForm onSubmit={savePalette}>
-            <TextValidator 
-              value={newPaletteName} 
-              onChange={handlePaletteNameChange}
-              validators={["required", "isUniquePaletteName"]}
-              errorMessages={["Enter a palette name", "The palette name is already taken"]}
-            />
-            <Button variant="contained" color="primary" type="submit">Save Palette</Button>
-          </ValidatorForm>
-          <Link to="/"><Button variant="contained" color="primary">Go Back</Button></Link>
+          <Link to="/" className={classes.link}><Button variant="contained" color="secondary" className={classes.button}>Go Back</Button></Link>
+          <Button variant="contained" color="primary" onClick={showMetaForm} className={classes.button}>Save Palette</Button>
         </div>
       </AppBar>
+      {showForm && <PaletteMetaForm palettes={palettes} savePalette={savePalette} setShowForm={showMetaForm}/> }
     </div>
   )
 }

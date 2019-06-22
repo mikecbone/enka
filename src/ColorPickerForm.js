@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
   picker: {
-    width: "100% !important",
     marginTop: "2rem"
   },
   addNewColor: {
@@ -54,7 +53,7 @@ function ColorPickerForm(props) {
 
   return (
     <div>
-      <ChromePicker color={currentColor} onChangeComplete={updateCurrentColor} className={classes.picker}/>
+      <ChromePicker width="100%" color={currentColor} onChangeComplete={updateCurrentColor} className={classes.picker}/>
         <ValidatorForm onSubmit={addNewColor}>
           <TextValidator 
             value={newColorName} 

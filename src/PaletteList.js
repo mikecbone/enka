@@ -29,11 +29,3 @@ class PaletteList extends Component {
 }
 
 export default withStyles(styles)(PaletteList);
-
-
-// https://w.wallhaven.cc/full/76/wallhaven-765e8e.jpg
-// https://w.wallhaven.cc/full/nm/wallhaven-nmpd78.png
-// https://w.wallhaven.cc/full/ne/wallhaven-nevkvw.jpg
-// https://w.wallhaven.cc/full/95/wallhaven-955pvw.png
-// https://w.wallhaven.cc/full/42/wallhaven-4258gy.jpg
-// https://w.wallhaven.cc/full/eo/wallhaven-eoyk5w.jpg

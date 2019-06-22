@@ -1,7 +1,7 @@
 export default {
   root: {
     backgroundColor: "grey",
-    backgroundImage: "url('https://w.wallhaven.cc/full/nm/wallhaven-nmpd78.png')",
+    backgroundImage: "url('https://w.wallhaven.cc/full/ne/wallhaven-nevkvw.jpg')",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -35,3 +35,10 @@ export default {
     gridGap: "5%"
   }
 }
+
+// https://w.wallhaven.cc/full/76/wallhaven-765e8e.jpg
+// https://w.wallhaven.cc/full/nm/wallhaven-nmpd78.png
+// https://w.wallhaven.cc/full/ne/wallhaven-nevkvw.jpg
+// https://w.wallhaven.cc/full/95/wallhaven-955pvw.png
+// https://w.wallhaven.cc/full/42/wallhaven-4258gy.jpg
+// https://w.wallhaven.cc/full/eo/wallhaven-eoyk5w.jpg
