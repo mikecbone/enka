@@ -61,6 +61,9 @@ export default function NewPaletteFormToolbar(props) {
   function showMetaForm() {
     setShowForm(true)
   }
+  function hideMetaForm() {
+    setShowForm(false)
+  }
 
   return (
     <div className={classes.root}>
@@ -89,7 +92,7 @@ export default function NewPaletteFormToolbar(props) {
           <Button variant="contained" color="primary" onClick={showMetaForm} className={classes.button}>Save Palette</Button>
         </div>
       </AppBar>
-      {showForm && <PaletteMetaForm palettes={palettes} savePalette={savePalette} setShowForm={showMetaForm}/> }
+      {showForm && <PaletteMetaForm palettes={palettes} savePalette={savePalette} hideMetaForm={hideMetaForm}/> }
     </div>
   )
 }
