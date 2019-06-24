@@ -47,12 +47,14 @@ export default function NewPaletteFormToolbar(props) {
           >
             <LibraryAddIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>Create a Color Palette</Typography>
+          <Typography variant="h6" className={classes.title} noWrap>Create a Color Palette</Typography>
         </Toolbar>
-        <div className={classes.toolbarButtons}>
-          <Link to="/" className={classes.link}><Button variant="contained" color="secondary" className={classes.button}>Go Back</Button></Link>
-          <Button variant="contained" color="primary" onClick={showMetaForm} className={classes.button}>Save Palette</Button>
-        </div>
+        {(open && window.innerWidth < 1000) ? <div/> :
+          <div className={classes.toolbarButtons}>
+            <Link to="/" className={classes.link}><Button variant="contained" color="secondary" className={classes.button}>Go Back</Button></Link>
+            <Button variant="contained" color="primary" onClick={showMetaForm} className={classes.button}>Save Palette</Button>
+          </div>
+        }
       </AppBar>
       {showForm && <PaletteMetaForm palettes={palettes} savePalette={savePalette} hideMetaForm={hideMetaForm}/> }
     </div>

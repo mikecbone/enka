@@ -1,4 +1,5 @@
 import chroma from 'chroma-js';
+import sizes from './sizes';
 
 export default {
   ColorBox: {
@@ -12,6 +13,18 @@ export default {
     "&:hover $copyButton": {
       opacity: "1",
       transition: "0.4s ease-out"
+    },
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: props => props.showingLevels ? "33.33333%" : "20%"
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: props => props.showingLevels ? "20%" : "10%"
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: props => props.showingLevels ? "10%" : "5%"
     }
   },
   textColor: {
@@ -99,7 +112,10 @@ export default {
       background: "rgba(255, 255, 255, 0.2)",
       width: "100%",
       marginBottom: "0",
-      padding: "1rem"
+      padding: "1rem",
+      [sizes.down("xs")]: {
+        fontSize: "5rem"
+      }
     },
     "& p": {
       fontWeight: "100",
