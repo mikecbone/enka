@@ -38,7 +38,7 @@ export default function PaletteMetaForm(props) {
     <div>
       <Dialog open={stage === "emoji"} onClose={props.hideMetaForm}>
       <DialogTitle id="form-dialog-title">Select a Palette Emoji</DialogTitle>
-        <Picker title="Palette Emoji" onSelect={savePalette}/>
+        <Picker title="Palette Emoji" onSelect={savePalette} emoji="art"/>
       </Dialog>
       <Dialog open={stage === "name"} onClose={props.hideMetaForm} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Save Custom Palette</DialogTitle>
