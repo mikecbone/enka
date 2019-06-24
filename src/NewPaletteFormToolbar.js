@@ -7,7 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import Button from '@material-ui/core/Button';
 import useStyles from './styles/NewPaletteFormToolbar_Styles';
 
@@ -45,7 +45,7 @@ export default function NewPaletteFormToolbar(props) {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <LibraryAddIcon />
           </IconButton>
           <Typography variant="h6" noWrap>Create a Color Palette</Typography>
         </Toolbar>

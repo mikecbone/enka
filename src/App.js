@@ -9,7 +9,8 @@ import { Route, Switch } from 'react-router-dom';
 
 
 function App() {
-  const [palettes, setPalettes] = React.useState(seedColors)
+  const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
+  const [palettes, setPalettes] = React.useState(savedPalettes || seedColors)
 
   function findPalette(id){
     return palettes.find(function(palette) {
@@ -18,8 +19,13 @@ function App() {
   }
   
   function savePalette(newPalette) {
-    setPalettes([...palettes, newPalette])
+    setPalettes([...palettes, newPalette]);
   }
+
+  React.useEffect(() => {
+    window.localStorage.setItem("palettes", JSON.stringify(palettes));
+    console.log("SAVING!");
+  }, [palettes])
 
   return (
     <Switch>
