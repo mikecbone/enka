@@ -22,16 +22,19 @@ function App() {
     setPalettes([...palettes, newPalette]);
   }
 
+  function removePalette(id){
+    setPalettes(palettes.filter(palette => palette.id !== id))
+  }
+
   React.useEffect(() => {
     window.localStorage.setItem("palettes", JSON.stringify(palettes));
-    console.log("SAVING!");
   }, [palettes])
 
   return (
     <Switch>
       <Route 
         exact path="/" 
-        render={(routeProps) => <PaletteList palettes={palettes} {...routeProps}/>}
+        render={(routeProps) => <PaletteList palettes={palettes} removePalette={removePalette} {...routeProps}/>}
       />
       <Route
         exact path="/palette/new"
