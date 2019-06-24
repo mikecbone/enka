@@ -2,6 +2,15 @@ import sizes from './sizes';
 import bg from '../flatMountains.svg';
 
 export default {
+  "@global": {
+    ".fade-exit": {
+      opacity: 1
+    },
+    ".fade-exit-active": {
+      opacity: 0,
+      transition: "opacity 500ms ease-in"
+    }
+  },
   root: {
     backgroundColor: "#ff7700",
     backgroundImage: `url(${bg})`, // background by SVGBackgrounds.com
