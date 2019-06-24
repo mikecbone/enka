@@ -11,7 +11,7 @@ function MiniPalette(props){
 
   function deletePalette(e) {
     e.stopPropagation();
-    props.removePalette(props.id)
+    props.removePaletteDialog(props.id)
   }
 
   return (
