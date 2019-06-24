@@ -1,21 +1,32 @@
+import sizes from './sizes';
+import bg from '../flatMountains.svg';
+
 export default {
   root: {
-    backgroundColor: "grey",
-    backgroundImage: "url('https://w.wallhaven.cc/full/ne/wallhaven-nevkvw.jpg')",
-    backgroundRepeat: "repeat",
-    backgroundPosition: "center",
+    backgroundColor: "#ff7700",
+    backgroundImage: `url(${bg})`, // background by SVGBackgrounds.com
     backgroundSize: "cover",
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
-    justifyContent: "center"
+    justifyContent: "center",
+    overflow: "scroll"
+  },
+  heading: {
+    fontSize: "2rem"
   },
   container: {
     width: "50%", 
     display: "flex",
     alignItems: "flex-start",
     flexDirection: "column",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    [sizes.down("lg")]: {
+      width: "65%",
+    },
+    [sizes.down("md")]: {
+      width: "90%",
+    }
   },
   nav: {
     display: "flex",
@@ -31,8 +42,16 @@ export default {
     boxSizing: "border-box",
     width: "100%",
     display: "grid",
-    gridTemplateColumns: "repeat(3, 30%)",
-    gridGap: "5%"
+    gridTemplateColumns: "repeat(3, 32%)",
+    gridGap: "2%",
+    [sizes.down("md")]: {
+      gridTemplateColumns: "repeat(2, 49%)",
+      gridGap: "2%"
+    },
+    [sizes.down("xs")]: {
+      gridTemplateColumns: "repeat(1, 100%)",
+      gridGap: "0.5%",
+    }
   }
 }
 
@@ -42,4 +61,3 @@ export default {
 // https://w.wallhaven.cc/full/95/wallhaven-955pvw.png
 // https://w.wallhaven.cc/full/42/wallhaven-4258gy.jpg
 // https://w.wallhaven.cc/full/eo/wallhaven-eoyk5w.jpg
-//
