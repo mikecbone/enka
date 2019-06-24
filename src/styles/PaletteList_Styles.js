@@ -2,7 +2,7 @@ export default {
   root: {
     backgroundColor: "grey",
     backgroundImage: "url('https://w.wallhaven.cc/full/ne/wallhaven-nevkvw.jpg')",
-    backgroundRepeat: "no-repeat",
+    backgroundRepeat: "repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
     height: "100vh",
@@ -42,3 +42,4 @@ export default {
 // https://w.wallhaven.cc/full/95/wallhaven-955pvw.png
 // https://w.wallhaven.cc/full/42/wallhaven-4258gy.jpg
 // https://w.wallhaven.cc/full/eo/wallhaven-eoyk5w.jpg
+//
