@@ -22,6 +22,7 @@ export default function PaletteMetaForm(props) {
   }
 
   function savePalette(emoji) {
+    setStage("")
     const newPalette = {paletteName: newPaletteName, emoji: emoji.native}
     props.savePalette(newPalette)
   }
@@ -47,7 +48,8 @@ export default function PaletteMetaForm(props) {
           <DialogContentText>
             Enter a unique name for your new custom palette.
           </DialogContentText>
-            <TextValidator 
+            <TextValidator
+              autoFocus
               value={newPaletteName} 
               onChange={handlePaletteNameChange}
               validators={["required", "isUniquePaletteName"]}
