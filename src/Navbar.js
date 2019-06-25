@@ -18,6 +18,20 @@ class Navbar extends Component {
     this.changeFormat = this.changeFormat.bind(this);
     this.closeSnackbar = this.closeSnackbar.bind(this);
   }
+  
+  changeFormat(event){
+    const newFormat = event.target.value
+    this.setState({
+      format: newFormat,
+      isSnackBarOpen: true
+    })
+    this.props.changeFormat(newFormat);
+  }
+
+  closeSnackbar() {
+    this.setState({isSnackBarOpen: false})
+  }
+
   render() {
     const {level, changeLevel, showLevelsBar, classes} = this.props;
     const {format} = this.state;
@@ -55,17 +69,6 @@ class Navbar extends Component {
         />
       </header>
     )
-  }
-  changeFormat(event){
-    const newFormat = event.target.value
-    this.setState({
-      format: newFormat,
-      isSnackBarOpen: true
-    })
-    this.props.changeFormat(newFormat);
-  }
-  closeSnackbar() {
-    this.setState({isSnackBarOpen: false})
   }
 }
 

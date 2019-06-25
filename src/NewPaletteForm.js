@@ -12,11 +12,9 @@ import DraggableColorBoxList from './DraggableColorBoxList';
 import arrayMove from "array-move";
 import useStyles from './styles/NewPaletteForm_Styles';
 
-
 NewPaletteForm.defaultProps = {
   maxColors: 20
 }
-
 
 export default function NewPaletteForm(props) {
   const classes = useStyles();
