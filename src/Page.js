@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/Page_Styles.css';
 
-export default function Page({children}) {
+export default function Page({location, children}) {
   return (
-    <section className="page">
+    <section className={"page"}>
       {children}
     </section>
   )

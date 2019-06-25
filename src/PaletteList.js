@@ -54,7 +54,14 @@ class PaletteList extends Component {
           <TransitionGroup className={classes.palettes}>
             {palettes.map(palette => (
               <CSSTransition key={palette.id} classNames="fade" timeout={500}>
-                <MiniPalette key={palette.id} {...palette} id={palette.id} removePaletteDialog={this.toggleDeleteDialog} openPalette={() => this.openPalette(palette.id)}/>
+                <MiniPalette 
+                  {...palette}
+                  key={palette.id} 
+                  paletteId={palette.id}
+                  id={palette.id} 
+                  removePaletteDialog={this.toggleDeleteDialog} 
+                  openPalette={this.openPalette}
+                />
               </CSSTransition>
             ))}
           </TransitionGroup>
