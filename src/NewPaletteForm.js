@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import DraggableColorBoxList from './DraggableColorBoxList';
 import arrayMove from "array-move";
 import useStyles from './styles/NewPaletteForm_Styles';
+import seedColors from './seedColors';
 
 NewPaletteForm.defaultProps = {
   maxColors: 20
@@ -20,7 +21,7 @@ export default function NewPaletteForm(props) {
   const classes = useStyles();
   const {maxColors, palettes} = props;
   const [open, setOpen] = React.useState(true);
-  const [colors, setColors] = React.useState(palettes[0].colors);
+  const [colors, setColors] = React.useState(seedColors[0].colors);
   const paletteIsFull = colors.length >= maxColors
 
   function handleDrawerOpen() {
