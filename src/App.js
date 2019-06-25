@@ -52,6 +52,9 @@ function App() {
               exact path="/palette/:paletteId/:colorId" 
               render={(routeProps) => <Page><SingleColorPallete colorId={routeProps.match.params.colorId} palette={generatePalette(findPalette(routeProps.match.params.paletteId))}/></Page>}
             />
+            <Route 
+              render={(routeProps) => <Page><PaletteList palettes={palettes} removePalette={removePalette} {...routeProps}/></Page>}
+            />
           </Switch>
         </CSSTransition>
       </TransitionGroup>

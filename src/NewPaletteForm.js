@@ -51,12 +51,19 @@ export default function NewPaletteForm(props) {
   }
 
   function addRandomColor() {
-    // Check for existing colour?
-    const randomPaletteIndex = Math.floor(Math.random() * palettes.length)
-    const randomPalette = palettes[randomPaletteIndex]
-    const randomColorIndex = Math.floor(Math.random() * randomPalette.colors.length)
-    const randomColor = randomPalette.colors[randomColorIndex]
+    let isDuplicate = true;
+    while(isDuplicate) {
+      const randomPaletteIndex = Math.floor(Math.random() * palettes.length)
+      const randomPalette = palettes[randomPaletteIndex]
+      const randomColorIndex = Math.floor(Math.random() * randomPalette.colors.length)
+      var randomColor = randomPalette.colors[randomColorIndex]
+      isDuplicate = checkRandomColor(randomColor)
+    }
     setColors([...colors, randomColor])
+  }
+
+  function checkRandomColor(randomColor) {
+    return colors.some(color => color.name === randomColor.name)
   }
 
   function savePalette(newPalette) {
